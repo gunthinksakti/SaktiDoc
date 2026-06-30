@@ -14,11 +14,9 @@ void main() {
 }
 
 class AppConfig {
-  // Masukkan URL Web App Google Apps Script Anda di sini setelah di-deploy
+  // Ganti dengan URL hasil deploy Web App Apps Script Anda yang baru
   static const String urlApiGas = "https://script.google.com/macros/s/AKfycbwVkzr9KyPo-h5C3YSYzQPKvqcYzOBOn3k_WbE1WAc5ESDUgxCDSYi0kDirte5EEGq-Ag/exec";
-  //
   static const String whatsappAdmin = "6289660321345";
-  // Masukkan username Telegram admin di sini tanpa tanda @
   static const String telegramAdmin = "en_oz";
 }
 
@@ -28,7 +26,7 @@ class SaktiDocApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SaktiDoc',
+      title: 'SaktiDoc Ultimate',
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
@@ -83,6 +81,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   Future<void> _loadConfigAndSync() async {
     _prefs = await SharedPreferences.getInstance();
+    
     String? existingId = _prefs.getString('cfg_device_id');
     if (existingId == null || existingId.isEmpty) {
       final random = Random();
@@ -199,7 +198,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SaktiDoc', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(0xff111111))),
+        title: const Text('SaktiDoc Ultimate', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(0xff111111))),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -802,7 +801,6 @@ class _EditorScreenState extends State<EditorScreen> {
                                 allowSharing: false,
                                 canChangePageFormat: false,
                                 canChangeOrientation: false,
-                                showLoading: false,
                               ),
                             ),
                           ),
@@ -847,10 +845,10 @@ class _EditorScreenState extends State<EditorScreen> {
             ),
           ),
           if (_isLoading)
-            const Positioned.fill(
+            Positioned.fill(
               child: Container(
                 color: Colors.black12,
-                child: Center(child: CircularProgressIndicator()),
+                child: const Center(child: CircularProgressIndicator()),
               ),
             )
         ],
