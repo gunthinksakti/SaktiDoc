@@ -1,0 +1,8 @@
+*.dart_tool/
+*.idea/
+*.vscode/
+*.gradle/
+*.pub-cache/
+*.lock
+build/
+.DS_Store
