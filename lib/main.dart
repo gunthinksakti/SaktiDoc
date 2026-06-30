@@ -13,11 +13,12 @@ void main() {
   runApp(const SaktiDocApp());
 }
 
-/// Konfigurasi Global Produksi Aplikasi (Kaku / Immutable)
 class AppConfig {
-  // Ganti dengan URL hasil deploy Web App Apps Script Anda yang baru
+  // Masukkan URL Web App Google Apps Script Anda di sini setelah di-deploy
   static const String urlApiGas = "https://script.google.com/macros/s/AKfycbwVkzr9KyPo-h5C3YSYzQPKvqcYzOBOn3k_WbE1WAc5ESDUgxCDSYi0kDirte5EEGq-Ag/exec";
+  //
   static const String whatsappAdmin = "6289660321345";
+  // Masukkan username Telegram admin di sini tanpa tanda @
   static const String telegramAdmin = "en_oz";
 }
 
@@ -42,9 +43,6 @@ class SaktiDocApp extends StatelessWidget {
   }
 }
 
-// ============================================================================
-// MAIN SCREEN (KATALOG, FILTER KATEGORI, FAVORIT, & ISI SALDO)
-// ============================================================================
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
 
@@ -85,7 +83,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   Future<void> _loadConfigAndSync() async {
     _prefs = await SharedPreferences.getInstance();
-    
     String? existingId = _prefs.getString('cfg_device_id');
     if (existingId == null || existingId.isEmpty) {
       final random = Random();
@@ -462,9 +459,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   }
 }
 
-// ============================================================================
-// EDITOR SCREEN (TEXT EDITOR, MODE FOKUS, MARGIN, & LIVE PREVIEW PDF)
-// ============================================================================
 class EditorScreen extends StatefulWidget {
   final Map<String, dynamic> itemData;
   final String deviceId;
