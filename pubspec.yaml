@@ -1,6 +1,8 @@
-name: saktidoc
-description: Solusi Dokumen Profesional
-version: 1.0.0
+name: saktidoc_ultimate
+description: "Aplikasi Pembuat Surat Digital Otomatis dengan Integrasi AI dan PDF Engine."
+publish_to: 'none'
+
+version: 1.0.0+1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -8,7 +10,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.1.0
+
+  # Library untuk komunikasi ke server Google Apps Script (GAS)
+  http: ^1.2.0
+
+  # Library untuk membuka tautan berkas PDF hasil cetak dari server
+  url_launcher: ^6.2.5
+
+  # Library untuk penyimpanan lokal data basis data offline dan status Favorit
+  shared_preferences: ^2.2.2
+
+  # Library untuk pembuatan biner dan layout dokumen PDF
+  pdf: ^3.10.8
+
+  # Library untuk fitur interaktif live preview halaman A4 dan proses cetak native
+  printing: ^5.11.0
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +33,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # Konfigurasi agar berkas template.json dapat dibaca secara lokal saat luring (offline)
+  assets:
+    - assets/template.json
