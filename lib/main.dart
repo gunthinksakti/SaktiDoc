@@ -572,7 +572,8 @@ class _EditorScreenState extends State<EditorScreen> {
     );
   }
 
-  Future Holiday_eksekusiDelegasiAiServer(String instruksi) async {
+  // DI SINI PERBAIKANNYA: Kata kunci kata 'Holiday' penyusup sudah dihapus
+  Future<void> _eksekusiDelegasiAiServer(String instruksi) async {
     setState(() => _isLoading = true);
     try {
       final response = await http.post(
