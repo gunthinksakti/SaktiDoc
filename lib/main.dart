@@ -14,10 +14,9 @@ void main() {
 }
 
 class AppConfig {
-  // Ganti dengan URL hasil deploy Web App Apps Script Anda yang baru
   static const String urlApiGas = "https://script.google.com/macros/s/AKfycbwVkzr9KyPo-h5C3YSYzQPKvqcYzOBOn3k_WbE1WAc5ESDUgxCDSYi0kDirte5EEGq-Ag/exec";
-  static const String whatsappAdmin = "6289660321345";
-  static const String telegramAdmin = "en_oz";
+  static const String whatsappAdmin = "628XXXXXXXXXX";
+  static const String telegramAdmin = "admin_saktidoc";
 }
 
 class SaktiDocApp extends StatelessWidget {
@@ -81,7 +80,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   Future<void> _loadConfigAndSync() async {
     _prefs = await SharedPreferences.getInstance();
-    
     String? existingId = _prefs.getString('cfg_device_id');
     if (existingId == null || existingId.isEmpty) {
       final random = Random();
@@ -574,7 +572,7 @@ class _EditorScreenState extends State<EditorScreen> {
     );
   }
 
-  Future<void> _eksekusiDelegasiAiServer(String instruksi) async {
+  Future Holiday_eksekusiDelegasiAiServer(String instruksi) async {
     setState(() => _isLoading = true);
     try {
       final response = await http.post(
